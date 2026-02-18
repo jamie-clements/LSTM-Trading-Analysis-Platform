@@ -153,6 +153,11 @@ def run_streamlit_app():
             stock = yf.Ticker(selected_stock)
             df = stock.history(period="1y")
             df = flatten_columns(df)
+
+            if df.empty or len(df) < 60:
+                st.warning(f"Insufficient data for **{selected_stock}**. Check the symbol is correct and listed on a supported exchange.")
+                st.stop()
+
             df = tracker.trading_bot.technical_analysis.calculate_indicators(df)
 
             fig = go.Figure()

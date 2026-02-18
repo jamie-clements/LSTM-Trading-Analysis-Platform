@@ -49,7 +49,7 @@ python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
-streamlit run src/advisor.py
+streamlit run src/app.py
 ```
 
 Open [http://localhost:8501](http://localhost:8501) in your browser.
@@ -61,7 +61,14 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 ```
 LSTM-Trading-Analysis-Platform/
 ├── src/
-│   └── advisor.py          # Core application: models, analysis engine, Streamlit UI
+│   ├── app.py          # Streamlit entry point and UI
+│   ├── analysis.py     # TechnicalAnalysis and TradingBot (signal ensemble)
+│   ├── prediction.py   # PricePredictionModel (LSTM training and inference)
+│   ├── sentiment.py    # NewsAnalyzer and news fetching
+│   ├── portfolio.py    # PortfolioConnector (Trading 212 API and CSV)
+│   ├── tracker.py      # StockTracker (SQLite persistence layer)
+│   ├── models.py       # LSTM architecture and Trade dataclass
+│   └── config.py       # Constants
 ├── requirements.txt
 ├── .gitignore
 └── README.md

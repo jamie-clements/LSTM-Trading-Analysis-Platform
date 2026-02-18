@@ -29,6 +29,16 @@ ENV/
 *.db
 *.sqlite3
 
+# Logs
+*.log
+
+# Testing & coverage
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+.coverage.*
+
 # OS specific
 .DS_Store
 .DS_Store?
